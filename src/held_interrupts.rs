@@ -7,6 +7,7 @@ pub struct HeldInterrupts(bool);
 
 /// Prevent interrupts from firing until the return value is dropped (goes out of scope). 
 /// After it is dropped, the interrupts are returned to their prior state, not blindly re-enabled. 
+//
 pub fn hold_interrupts() -> HeldInterrupts {
     let enabled = interrupts_enabled();
 	let retval = HeldInterrupts(enabled);
